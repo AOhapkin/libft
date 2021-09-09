@@ -1,0 +1,36 @@
+NAME = libft.a
+
+SRCS = srcs/ft_isalpha.c
+
+HEADER = libft.h
+
+OBJS	= ${SRCS:.c=.o}
+
+GCC		= gcc
+
+AR		= ar rc
+
+RAN		= ranlib
+
+RM		= rm -f
+
+CFLAGS	= -Wall -Wextra -Werror
+
+.PHONY:		all clean fclean re
+
+.c.o:		${HEADER}
+			${GCC} ${CFLAGS} ${INC_HEADERS} -c $< -o ${<:.c=.o}
+
+${NAME}:	${OBJS}
+			${AR} ${NAME} ${OBJS}
+			${RAN} ${NAME}
+
+all:		${NAME}
+
+clean:		
+			${RM} ${OBJS}
+
+fclean:		clean
+			${RM} ${NAME}
+
+re:			fclean all

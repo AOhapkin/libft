@@ -11,7 +11,7 @@ char	*ft_strchr(const char *str, int c)
 		{
 			return (str[i]);
 		}
-		
+		i++;
 	}
 	return (NULL);
 }

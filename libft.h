@@ -27,5 +27,6 @@ int	ft_atoi(const char *nptr);
 int	ft_isspace(int c);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
+void	ft_putnbr(int n);
 
 #endif

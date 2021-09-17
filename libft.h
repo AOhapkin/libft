@@ -29,5 +29,6 @@ void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int n);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *str);
 
 #endif

@@ -1,6 +1,6 @@
 #include "../libft.h"
 
-int	n_len(int n)
+int	ft_n_len(int n)
 {
 	int	i;
 
@@ -15,5 +15,9 @@ int	n_len(int n)
 
 char	*ft_itoa(int n)
 {
-
+	if (n == -2147483648)
+	{
+		return (ft_strdup("-2147483648"));
+	}
+	
 }

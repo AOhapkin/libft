@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/05 18:29:01 by gmyriah           #+#    #+#             */
+/*   Updated: 2021/10/05 18:31:13 by gmyriah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 int	ft_count_strs(char const *s, char c)
@@ -22,9 +34,13 @@ int	ft_count_strs(char const *s, char c)
 
 int	ft_s_len(char const *s, char c) {
 	int	i;
+	int j;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	j = 0;
+	while (s[j] != c)
+		j++;
+	while (s[i + j] && s[i + j] != c)
 		i++;
 	return (i);
 }
@@ -52,10 +68,6 @@ char	**ft_save_array(char const *s, char c, int strs_number, char **strs)
 	i = 0;
 	while (i < strs_number)
 	{
-		while (*s == c)
-		{
-			*s++;
-		}
 		str_len = ft_s_len(s, c);
 		strs[i] = (char *)malloc(sizeof(char) * (str_len + 1));
 		if (!strs[i])
@@ -68,6 +80,7 @@ char	**ft_save_array(char const *s, char c, int strs_number, char **strs)
 		{
 			strs[i][j] = *s;
 			*s++;
+			j++;
 		}
 		strs[i][j] = '\0';
 		i++;
@@ -79,7 +92,6 @@ char	**ft_save_array(char const *s, char c, int strs_number, char **strs)
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
-	int		i;
 	int		strs_number;
 
 	strs_number = ft_count_strs(s, c);

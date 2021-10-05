@@ -19,8 +19,6 @@ int	ft_count_strs(char const *s, char c)
 
 	counter = 0;
 	i = 0;
-	while (s[i] == c)
-		i++;
 	while (s[i])
 	{
 		if ((s[i] != c) && (s[i + 1] == c || s[i + 1] == '\0'))

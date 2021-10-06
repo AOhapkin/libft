@@ -6,11 +6,11 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:53:13 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/05 16:53:18 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/06 12:30:07 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../includes/libft.h"
 
 int	ft_atoi(const char *str)
 {

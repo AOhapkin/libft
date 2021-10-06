@@ -6,11 +6,11 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:51:50 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/05 18:51:53 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/06 12:40:24 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../includes/libft.h"
 
 int	ft_n_len(int n)
 {
@@ -34,9 +34,7 @@ char	*ft_itoa(int n)
 	i = 0;
 	n_len = ft_n_len(n);
 	if (n == -2147483648)
-	{
-		return (&ft_strdup('-2147483648'));
-	}
+		return (ft_strdup("-2147483648"));
 	if (ft_isnegative(n))
 	{
 		dest[i] = '-';

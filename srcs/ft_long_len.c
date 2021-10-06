@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_long_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 13:16:59 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/05 13:17:41 by gmyriah          ###   ########.fr       */
+/*   Created: 2021/10/06 12:46:43 by gmyriah           #+#    #+#             */
+/*   Updated: 2021/10/06 12:49:12 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int	ft_isalnum(int c)
+size_t	ft_long_len(long n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	size_t	len;
+
+	len = 1;
+	if (n < 0)
+		len++;
+	while (nb / 10)
 	{
-		return (1);
+		nb /= 10;
+		len++;
 	}
-	return (0);
+	return (len);
 }

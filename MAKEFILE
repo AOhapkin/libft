@@ -6,7 +6,7 @@
 #   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2021/10/05 13:05:52 by gmyriah           #+#    #+#             #
-#   Updated: 202#   Updated: 2021/10/06 11:53:32 by gmyriah          ###   ########.fr       #                                                              #
+#   Updated: 202#   Updated: 2021/10/06 12:36:10 by gmyriah          ###   ########.fr       #                                                              #
 # ************************************************************************** #
 
 NAME = libft.a
@@ -42,13 +42,19 @@ SRCS = srcs/ft_isalpha.c \
 	srcs/ft_tolower.c \
 	srcs/ft_toupper.c \
 
-HEADER = libft.h
+INCLUDES = ./includes
+
+INC_HEADERS = -I ${INCLUDES}
+
+HEADER = ${INCLUDES}/libft.h
 
 OBJS	= ${SRCS:.c=.o}
 
 CC		= gcc
 
 AR		= ar rc
+
+RAN		= ranlib
 
 RM		= rm -f
 
@@ -57,11 +63,11 @@ CFLAGS	= -Wall -Wextra -Werror
 .PHONY:		all clean fclean re
 
 .c.o:		${HEADER}
-			${GCC} ${CFLAGS} ${INC_HEADERS} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} ${INC_HEADERS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			${AR} ${NAME} ${OBJS}
-			ranlib ${NAME}
+			${RAN} ${NAME}
 
 all:		${NAME}
 

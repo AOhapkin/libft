@@ -6,48 +6,33 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:51:50 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/06 12:40:24 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/06 12:59:34 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int	ft_n_len(int n)
-{
-	int	i;
-
-	i = 0;
-	while (n > 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
-}
-
 char	*ft_itoa(int n)
 {
 	char	*dest;
-	int	i;
-	int	n_len;
+	long	nb;
+	size_t	i;
 
-	i = 0;
-	n_len = ft_n_len(n);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (ft_isnegative(n))
+	nb = (long)n;
+	i = ft_long_len(nb);
+	dest = (char *) malloc(sizeof(char) * (i + 1));
+	if (!dest)
+		return (NULL);
+	dest[0] = '0';
+	if (nb < 0)
 	{
-		dest[i] = '-';
-		n *= -n;
+		dest[0] = '-';
+		nb *= -1;
 	}
-	i = n_len;
-	while (n > 9)
+	while (nb > 0)
 	{
-		dest[i] = n % 10 + '0';
-		n /= 10;
-		i--;
+		dest[i] = nb % 10 + '0';
+		nb /= 10;
 	}
-	dest[i] = n % 10 + '0';
-	dest[n_len] = '\0';
 	return (dest);
 }

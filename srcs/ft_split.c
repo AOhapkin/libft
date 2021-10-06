@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:29:01 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/05 18:31:13 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/06 13:34:18 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,88 +14,66 @@
 
 int	ft_count_strs(char const *s, char c)
 {
-	int	counter;
-	int	i;
+	int	n;
 
-	counter = 0;
-	i = 0;
-	while (s[i])
+	n = 0;
+	while (*s)
 	{
-		if ((s[i] != c) && (s[i + 1] == c || s[i + 1] == '\0'))
-		{
-			counter++;
-		}
-		i++;
+		while (*s == c)
+			s++;
+		if (*s && *s != c)
+			n++;
+		while (*s && *s != c)
+			s++;
 	}
-	return (counter);
+	return (n);
 }
 
-int	ft_s_len(char const *s, char c) {
-	int	i;
-	int j;
+char	*ft_push_str(char *s, char c) {
+	char	*str;
+	int 	i;
 
 	i = 0;
-	j = 0;
-	while (s[j] != c)
-		j++;
-	while (s[i + j] && s[i + j] != c)
+	while (s[i] && s[i] != c)
 		i++;
-	return (i);
-}
-
-void ft_malloc_error(char **strs)
-{
-	int	i;
-
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (strs[i])
+	while (*s && *s != c)
 	{
-		free(strs[i]);
+		str[i] = *s;
 		i++;
+		s++;
 	}
-	free(strs);
-	return (NULL);
-}
-
-char	**ft_save_array(char const *s, char c, int strs_number, char **strs)
-{
-	int	i;
-	int	j;
-	int	str_len;
-
-	i = 0;
-	while (i < strs_number)
-	{
-		str_len = ft_s_len(s, c);
-		strs[i] = (char *)malloc(sizeof(char) * (str_len + 1));
-		if (!strs[i])
-		{
-			ft_malloc_error(strs);
-			return (NULL);
-		}
-		j = 0;
-		while (j < str_len)
-		{
-			strs[i][j] = *s;
-			*s++;
-			j++;
-		}
-		strs[i][j] = '\0';
-		i++;
-	}
-	strs[i] = NULL;
-	return (strs);
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	int		strs_number;
+	char	**result;
+	int		i;
 
-	strs_number = ft_count_strs(s, c);
-	strs = (char **)malloc(sizeof(char *) * (strs_number + 1));
-	if (!strs)
+	i = 0;
+	if (!s)
 		return (NULL);
-	strs = ft_save_array(s, c, strs_number, strs);
-	return (strs);
+	result = (char **) malloc(sizeof(char *) * (ft_count_strs(s, c) + 1));
+	if (!result)
+		return (NULL);
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			result[i] = ft_push_str((char  *)s, c);
+			if (!result[i])
+				return (NULL);
+			i++;
+			while (*s && *s != c)
+				s++;
+		}
+	}
+	result[i] = 0;
+	return (result);
 }

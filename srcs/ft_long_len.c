@@ -19,9 +19,9 @@ size_t	ft_long_len(long n)
 	len = 1;
 	if (n < 0)
 		len++;
-	while (nb / 10)
+	while (n / 10)
 	{
-		nb /= 10;
+		n /= 10;
 		len++;
 	}
 	return (len);

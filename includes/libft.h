@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 13:05:52 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/06 12:52:21 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/07 11:29:08 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stddef.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -24,7 +25,7 @@ size_t	ft_strlen(const char *str);
 void	*ft_memset(void *dest, int c, size_t count);
 void	ft_bzero(void *b, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memmove(void *dest, void *src, size_t len);
+void	*ft_memmove(void *dest, const void *src, size_t len);
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 int		ft_toupper(int c);
@@ -45,5 +46,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 int		ft_isnegative(int n);
 size_t	ft_long_len(long n);
+char	*ft_itoa(int n);
 
 #endif

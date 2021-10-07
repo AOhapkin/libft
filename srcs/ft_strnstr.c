@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:15:08 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/05 16:48:11 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/07 16:16:30 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,36 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	size_t	j;
+//	size_t	j;
+//	char	*h;
+//	char	*n;
 	size_t	needle_len;
-	char	*h;
 
-	i = 0;
-	h = (char *)(haystack);
+//	h = (char *)(haystack);
+	if (*needle == '\0')
+		return ((char *)haystack);
+//	while (*haystack != '\0' && len != 0)
+//	{
+//		j = len;
+//		while (*haystack == *needle && *needle != '\0' && j != 0)
+//		{
+//			needle++;
+//			haystack++;
+//			j--;
+//
+//		}
+//		if (*needle == '\0')
+//			return ((char *)haystack);
+//		haystack++;
+//		len--;
+//	}
 	needle_len = ft_strlen(needle);
-	if (needle_len == 0)
-		return (h);
-	while (h[i] && i < len)
+	while (len >= needle_len)
 	{
-		j = 0;
-		if (haystack[i] == needle[j])
-		{
-			while ((i + j) < needle_len && haystack[i + j] == needle[j])
-			{
-				if (needle[j] == '\0')
-					return (&h[i]);
-				j++;
-			}
-		}
-		i++;
+		if (!ft_memcmp(haystack, needle, needle_len))
+			return ((char *)haystack);
+		len--;
+		haystack++;
 	}
 	return (NULL);
 }

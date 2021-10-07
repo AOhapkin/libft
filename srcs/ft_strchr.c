@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:40:43 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/05 15:51:39 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/07 12:44:50 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int		i;
-	char	*s;
-
-	i = 0;
-	s = (char *)(str);
-	while (s[i])
+	while (*str && *str != (char)c)
 	{
-		if (s[i] == c)
-		{
-			return (&s[i]);
-		}
-		i++;
+		str++;
 	}
+	if (*str == (char)c)
+		return ((char *)str);
 	return (NULL);
 }

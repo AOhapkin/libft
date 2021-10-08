@@ -42,6 +42,7 @@ SRCS = srcs/ft_isalpha.c \
 	srcs/ft_tolower.c \
 	srcs/ft_toupper.c \
 	srcs/ft_strmapi.c \
+	srcs/ft_striteri.c \
 
 INCLUDES = ./includes
 

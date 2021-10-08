@@ -46,5 +46,6 @@ char	**ft_split(char const *s, char c);
 int		ft_isnegative(int n);
 size_t	ft_long_len(long n);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

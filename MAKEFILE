@@ -48,6 +48,8 @@ SRCS = srcs/ft_isalpha.c \
 	srcs/ft_putendl_fd.c \
 	srcs/ft_putnbr_fd.c \
 
+BONUS = srcs/ft_lstnew.c \
+
 INCLUDES = ./includes
 
 INC_HEADERS = -I ${INCLUDES}

@@ -41,7 +41,14 @@ SRCS = srcs/ft_isalpha.c \
 	srcs/ft_substr.c \
 	srcs/ft_tolower.c \
 	srcs/ft_toupper.c \
-	srcs/ft_long_len.c
+	srcs/ft_long_len.c \
+	srcs/ft_strmapi.c \
+	srcs/ft_striteri.c \
+	srcs/ft_putchar_fd.c \
+	srcs/ft_putstr_fd.c \
+	srcs/ft_putendl_fd.c \
+	srcs/ft_putnbr_fd.c \
+	srcs/ft_lstnew.c \
 
 INCLUDES = ./includes
 

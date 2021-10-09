@@ -6,26 +6,50 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:24:11 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 11:52:04 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:47:45 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
+int	isinset(char c, char const *set)
+{
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
-	int		s1_size;
 	char	*substr;
+	size_t 	sub_start;
+	size_t 	sub_end;
 
 	if (!s1 || !set)
 		return (NULL);
+	sub_start = 0;
+	while (s1[sub_start] && isinset(s1[sub_start], set))
+		sub_start++;
+	sub_end = ft_strlen(s1);
+	while (sub_start < sub_end && isinset(s1[sub_end - 1], set))
+		sub_end--;
+	if (sub_start == sub_end)
+		return (NULL);
+	substr = (char *) malloc(sizeof(*s1) * (sub_end - sub_start + 1));
+	if (!substr)
+		return (NULL);
 	i = 0;
-	while (s1[i] && (&s1[i] == set))
+	while (sub_start != sub_end)
+	{
+		substr[i] = s1[sub_start];
 		i++;
-	s1_size = ft_strlen(s1);
-	while(s1_size && (&s1[s1_size - 1] == set))
-		s1_size--;
-	substr = ft_substr(s1, i, (s1_size + 1));
+		sub_start++;
+	}
+	substr[i] = '\0';
 	return (substr);
 }

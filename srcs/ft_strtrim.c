@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:24:11 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 14:50:55 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 16:30:23 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	sub_end = ft_strlen(s1);
 	while (sub_start < sub_end && isinset(s1[sub_end - 1], set))
 		sub_end--;
-	if (sub_start == sub_end)
-		return (NULL);
 	substr = (char *) malloc(sizeof(*s1) * (sub_end - sub_start + 1));
 	if (!substr)
 		return (NULL);

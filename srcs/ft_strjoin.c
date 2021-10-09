@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:16:59 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 14:56:56 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 15:26:23 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	dest_len = ft_strlen(s1) + ft_strlen(s2);
+	dest_len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	dest = malloc(sizeof(char) * dest_len);
 	if (!dest)
 		return (NULL);

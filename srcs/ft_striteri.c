@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 11:57:53 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 12:02:43 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:58:08 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    int	i;
+	int	i;
 
-    i = 0;
-	if(s && f)
+	i = 0;
+	if (s && f)
 	{
 		while (s[i])
 		{

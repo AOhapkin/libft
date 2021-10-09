@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:29:01 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 11:52:04 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:59:18 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ int	ft_count_strs(char const *s, char c)
 	return (n);
 }
 
-char	*ft_push_str(char *s, char c) {
+char	*ft_push_str(char *s, char c)
+{
 	char	*str;
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -66,7 +67,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			result[i] = ft_push_str((char  *)s, c);
+			result[i] = ft_push_str((char *)s, c);
 			if (!result[i])
 				return (NULL);
 			i++;

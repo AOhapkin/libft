@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:24:11 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 13:47:45 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:50:55 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	char	*substr;
-	size_t 	sub_start;
-	size_t 	sub_end;
+	size_t	sub_start;
+	size_t	sub_end;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -45,11 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	i = 0;
 	while (sub_start != sub_end)
-	{
-		substr[i] = s1[sub_start];
-		i++;
-		sub_start++;
-	}
+		substr[i++] = s1[sub_start++];
 	substr[i] = '\0';
 	return (substr);
 }

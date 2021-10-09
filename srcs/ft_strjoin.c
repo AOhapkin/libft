@@ -6,7 +6,7 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:16:59 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/09 11:52:04 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:56:56 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	i = 0;
 	while (s2[i])
-	{
-		dest[j] = s2[i];
-		i++;
-		j++;
-	}
+		dest[j++] = s2[i++];
 	dest[j] = '\0';
 	return (dest);
 }

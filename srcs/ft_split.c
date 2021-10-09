@@ -37,7 +37,7 @@ char	*ft_push_str(char *s, char c)
 	i = 0;
 	while (s[i] && s[i] != c)
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	str = (char *)malloc(sizeof(char) * (i));
 	if (!str)
 		return (NULL);
 	i = 0;

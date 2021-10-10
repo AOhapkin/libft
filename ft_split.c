@@ -6,13 +6,13 @@
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:29:01 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/10 13:03:32 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/10 16:36:04 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_split_error(char **strs)
+void	*ft_split_error(char **strs)
 {
 	size_t	i;
 
@@ -23,6 +23,7 @@ void	ft_split_error(char **strs)
 		i++;
 	}
 	free(strs);
+	return (NULL);
 }
 
 int	ft_count_strs(char const *s, char c)
@@ -82,10 +83,7 @@ char	**ft_split(char const *s, char c)
 		{
 			result[i] = ft_push_str((char *)s, c);
 			if (!result[i])
-			{
 				ft_split_error(result);
-				return (NULL);
-			}
 			i++;
 			while (*s && *s != c)
 				s++;

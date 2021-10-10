@@ -6,7 +6,7 @@
 #   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2021/10/05 13:05:52 by gmyriah           #+#    #+#             #
-#   Updated: 202#   Updated: 2021/10/10 15:40:20 by gmyriah          ###   ########.fr       #                                              #
+#   Updated: 202#   Updated: 2021/10/10 15:47:20 by gmyriah          ###   ########.fr       #                                              #
 # ************************************************************************** #
 
 NAME		= libft.a
@@ -52,6 +52,7 @@ SRCS		= ft_isalpha.c \
 BONUS		= ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
+		ft_lstlast.c \
 
 HEADER		= libft.h
 

@@ -6,12 +6,12 @@
 #   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2021/10/05 13:05:52 by gmyriah           #+#    #+#             #
-#   Updated: 2021/10/06 14:53:18 by gmyriah          ###   ########.fr       #                                                              #
+#   Updated: 202#   Updated: 2021/10/10 14:26:57 by gmyriah          ###   ########.fr       #                                              #
 # ************************************************************************** #
 
-NAME = libft.a
+NAME		= libft.a
 
-SRCS = ft_isalpha.c \
+SRCS		= ft_isalpha.c \
 	ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -48,23 +48,26 @@ SRCS = ft_isalpha.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
-	ft_lstnew.c \
 
-HEADER = libft.h
+BONUS		= ft_lstnew.c \
 
-OBJS	= ${SRCS:.c=.o}
+HEADER		= libft.h
 
-CC		= gcc
+OBJS		= ${SRCS:.c=.o}
 
-AR		= ar rc
+BONUS_OBJS 	= ${OBJS:.c=.o}
 
-RAN		= ranlib
+CC			= gcc
 
-RM		= rm -f
+AR			= ar rc
 
-CFLAGS	= -Wall -Wextra -Werror
+RAN			= ranlib
 
-.PHONY:		all clean fclean re
+RM			= rm -f
+
+CFLAGS		= -Wall -Wextra -Werror
+
+.PHONY:		all clean fclean re bonus
 
 .c.o:		${HEADER}
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
@@ -76,9 +79,12 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
 			${RM} ${NAME}
 
 re:			fclean all
+
+bonus:		${OBJS} ${BONUS_OBJS}
+			${AR} ${NAME} ${OBJS} ${BONUS_OBJS}

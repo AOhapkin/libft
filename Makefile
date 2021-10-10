@@ -6,7 +6,7 @@
 #   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2021/10/05 13:05:52 by gmyriah           #+#    #+#             #
-#   Updated: 202#   Updated: 2021/10/10 15:56:14 by gmyriah          ###   ########.fr       #                                              #
+#   Updated: 202#   Updated: 2021/10/10 16:47:18 by gmyriah          ###   ########.fr       #                                              #
 # ************************************************************************** #
 
 NAME		= libft.a
@@ -55,6 +55,7 @@ BONUS		= ft_lstnew.c \
 		ft_lstlast.c \
 		ft_lstadd_back.c \
 		ft_lstdelone.c \
+		ft_lstclear.c \
 
 HEADER		= libft.h
 

@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 11:58:46 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/10 15:31:16 by gmyriah          ###   ########.fr       */
+/*   Created: 2021/10/10 15:39:10 by gmyriah           #+#    #+#             */
+/*   Updated: 2021/10/10 15:41:47 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-//	long nb;
-//
-//	nb = n;
-//	if (nb < 0)
-//	{
-//		ft_putchar_fd('-', fd);
-//		nb = -nb;
-//	}
-//	if (nb >= 10)
-//		ft_putnbr_fd(nb / 10, fd);
-//	ft_putchar_fd(((nb % 10) + '0'), fd);
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	if (lst && new)
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n *= -1;
-		}
-		if (n >= 10)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(((n % 10) + '0'), fd);
+		new->next = *lst;
+		*lst = new;
 	}
 }

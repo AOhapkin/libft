@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-//void	ft_split_error(char **strs)
-//{
-//	size_t	i;
-//
-//	i = 0;
-//	while (strs[i])
-//	{
-//		free(&strs[i]);
-//		i++;
-//	}
-//	free(strs);
-//}
+void	ft_split_error(char **strs)
+{
+	size_t	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
 
 int	ft_count_strs(char const *s, char c)
 {
@@ -83,7 +83,7 @@ char	**ft_split(char const *s, char c)
 			result[i] = ft_push_str((char *)s, c);
 			if (!result[i])
 			{
-//				ft_split_error(result);
+				ft_split_error(result);
 				return (NULL);
 			}
 			i++;

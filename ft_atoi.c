@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 {
 	unsigned long int	result;
 	int					negative;
-	int					i;
+	size_t              i;
 
 	result = 0;
 	negative = 1;

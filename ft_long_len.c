@@ -24,5 +24,5 @@ size_t	ft_long_len(long n)
 		n /= 10;
 		len++;
 	}
-	return (len);
+	return (len + 1);
 }

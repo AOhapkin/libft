@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+size_t	ft_count_digits
+
 char	*ft_itoa(int n)
 {
 	char	*dest;

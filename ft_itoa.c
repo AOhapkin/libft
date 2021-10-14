@@ -12,30 +12,49 @@
 
 #include "libft.h"
 
-size_t	ft_count_digits
+size_t	ft_n_len(long nb)
+{
+	size_t	len;
+
+	len = 0;
+	while (nb / 10)
+	{
+		nb /= 10;
+		len++;
+	}
+	return (len + 1);
+}
+
+char	*ft_memory_alloc(int n, size_t len)
+{
+	if (n < 0)
+		return ((char *)malloc(sizeof(char) * len + 2));
+	return ((char *)malloc(sizeof(char) * len + 1));
+}
 
 char	*ft_itoa(int n)
 {
 	char	*dest;
 	long	nb;
-	size_t	i;
+	size_t	len;
 
 	nb = (long)n;
-	i = ft_long_len(nb);
-	dest = (char *)malloc(sizeof(char) * (i + 1));
+	len = ft_n_len(nb);
+	dest = ft_memory_alloc(n, len);
 	if (!dest)
-		return (NULL);
+		return ((char *)0);
 	dest[0] = '0';
+	dest[len + 1] = '\0';
 	if (nb < 0)
 	{
 		dest[0] = '-';
 		nb *= -1;
 	}
-	while (nb > 0)
+	while (len)
 	{
-		dest[i] = nb % 10 + '0';
+		dest[len] = nb % 10 + '0';
 		nb /= 10;
-		i--;
+		len--;
 	}
 	return (dest);
 }

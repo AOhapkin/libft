@@ -41,7 +41,6 @@ SRCS		= ft_isalpha.c \
 		ft_substr.c \
 		ft_tolower.c \
 		ft_toupper.c \
-		ft_long_len.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \

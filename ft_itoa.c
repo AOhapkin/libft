@@ -28,13 +28,6 @@ size_t	ft_n_len(long nb)
 	return (len);
 }
 
-char	*ft_memory_alloc(int n, size_t len)
-{
-	if (n < 0)
-		return ((char *)malloc(sizeof(char) * len + 2));
-	return ((char *)malloc(sizeof(char) * len + 1));
-}
-
 char	*ft_itoa(int n)
 {
 	char	*dest;
@@ -43,21 +36,23 @@ char	*ft_itoa(int n)
 
 	nb = (long)n;
 	len = ft_n_len(nb);
-	dest = ft_memory_alloc(n, len);
+	dest = ft_newstr(len);
 	if (!dest)
-		return (NULL);
+		return (0);
 	dest[0] = '0';
+	if (n == 0)
+		return (dest);
 	if (nb < 0)
 	{
 		dest[0] = '-';
 		nb *= -1;
 	}
-	while (len)
+	len--;
+	while (nb > 0)
 	{
 		dest[len] = nb % 10 + '0';
 		nb /= 10;
 		len--;
 	}
-	dest[len] = '\0';
 	return (dest);
 }

@@ -26,51 +26,64 @@ void	*ft_split_error(char **strs)
 	return (NULL);
 }
 
-int	ft_count_strs(char const *s, char c)
+size_t	ft_count_strs(char const *s, char c)
 {
-	int	n;
+	size_t	n;
 
 	n = 0;
 	while (*s)
 	{
-		while (*s == c)
+		if (*s == c)
 			s++;
-		if (*s && *s != c)
+		else
+		{
 			n++;
-		while (*s && *s != c)
-			s++;
+			while (*s && *s != c)
+				s++;
+		}
 	}
 	return (n);
 }
 
+char	*ft_push_str(char const *s, char c)
+{
+	char	*substr;
+	size_t	len;
+	size_t	i;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	substr = ft_newstr(len);
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (*s && *s != c)
+		substr[i] = *s++;
+	return (substr);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	char const	*substr_ptr;
-	size_t	i;
-	size_t	substr_len;
+	char		**result;
+	size_t		i;
 
 	if (!s)
 		return (NULL);
-	result = (char **) malloc(sizeof(char *) * (ft_count_strs(s, c) + 1));
+	result = (char **)malloc(sizeof(char *) * (ft_count_strs(s, c) + 1));
 	if (!result)
 		return (NULL);
 	i = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (*s && *s == c)
 			s++;
 		if (*s)
-		{
-			substr_ptr = s;
-			substr_len = 0;
-			while (*s && *s++ != c)
-				substr_len++;
-			s--;
-			if (*s != c)
-				if (!(result[i++] = ft_substr(substr_ptr, 0, substr_len)))
-					ft_split_error(result);
-		}
+			result[i] = ft_push_str(s, c);
+		if (!result[i])
+			return (ft_split_error(result));
+		while (*s && *s != c)
+			s++;
 	}
 	result[i] = 0;
 	return (result);

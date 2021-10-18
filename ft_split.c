@@ -12,20 +12,6 @@
 
 #include "libft.h"
 
-void	*ft_split_error(char **strs)
-{
-	size_t	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
-	return (NULL);
-}
-
 size_t	ft_count_strs(char const *s, char c)
 {
 	size_t	n;
@@ -45,28 +31,30 @@ size_t	ft_count_strs(char const *s, char c)
 	return (n);
 }
 
-char	*ft_push_str(char const *s, char c)
-{
-	char	*substr;
-	size_t	len;
-	size_t	i;
-
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	substr = ft_newstr(len);
-	if (!substr)
-		return (NULL);
-	i = 0;
-	while (*s && *s != c)
-		substr[i] = *s++;
-	return (substr);
-}
+//char	*ft_push_str(char const *s, char c)
+//{
+//	char	*substr;
+//	size_t	len;
+//	size_t	i;
+//
+//	len = 0;
+//	while (s[len] && s[len] != c)
+//		len++;
+//	substr = ft_newstr(len);
+//	if (!substr)
+//		return (NULL);
+//	i = 0;
+//	while (*s && *s != c)
+//		substr[i] = *s++;
+//	return (substr);
+//}
 
 char	**ft_split(char const *s, char c)
 {
 	char		**result;
+	char const	*ptr;
 	size_t		i;
+	size_t		ptr_len;
 
 	if (!s)
 		return (NULL);
@@ -78,13 +66,16 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s && *s == c)
 			s++;
-		if (*s)
-			result[i] = ft_push_str(s, c);
-		if (!result[i])
-			return (ft_split_error(result));
-		while (*s && *s != c)
+		ptr = s;
+		ptr_len = 0;
+		while ((*s != c) && *s)
+		{
+			ptr_len++;
 			s++;
+		}
+		if (*(s - 1) != c)
+			result[i++] = ft_substr(ptr, 0, ptr_len);
 	}
-	result[i] = 0;
+	result[i] = NULL;
 	return (result);
 }

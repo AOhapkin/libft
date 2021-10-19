@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: gmyriah <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 18:29:01 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/10 16:36:04 by gmyriah          ###   ########.fr       */
+/*   Created: 2021/10/19 12:37:11 by gmyriah           #+#    #+#             */
+/*   Updated: 2021/10/19 12:37:11 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,6 @@ size_t	ft_count_strs(char const *s, char c)
 	}
 	return (n);
 }
-
-//char	*ft_push_str(char const *s, char c)
-//{
-//	char	*substr;
-//	size_t	len;
-//	size_t	i;
-//
-//	len = 0;
-//	while (s[len] && s[len] != c)
-//		len++;
-//	substr = ft_newstr(len);
-//	if (!substr)
-//		return (NULL);
-//	i = 0;
-//	while (*s && *s != c)
-//		substr[i] = *s++;
-//	return (substr);
-//}
 
 char	**ft_split(char const *s, char c)
 {

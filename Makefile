@@ -6,10 +6,10 @@
 #   By: gmyriah <marvin@42.fr>                     +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2021/10/19 12:37:11 by gmyriah           #+#    #+#             #
-#   Updated: 2021/10/19 12:37:11 by gmyriah          ###   ########.fr       #
-#                                                                            #
+#   Updated: 202#   Updated: 2021/10/19 13:02:20 by gmyriah          ###   ########.fr       #                                              #
 # ************************************************************************** #
 
+NAME		= libft.a
 
 SRCS		= ft_isalpha.c \
 		ft_atoi.c \

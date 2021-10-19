@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *dest, int c, size_t count)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*ptr;
 
 	i = 0;

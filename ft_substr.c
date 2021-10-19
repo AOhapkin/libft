@@ -18,16 +18,15 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	size_t	i;
 	size_t	str_len;
 
-	if (!str) {
+	if (!str)
 		return (NULL);
-	}
-	else if ((str_len = ft_strlen(str)) <= start) {
+	str_len = ft_strlen(str);
+	if (str_len <= start)
 		return (ft_newstr(0));
-	}
-	len = (len + start) > str_len
-			? str_len - start
-			: len;
-	if (!(substr = ft_newstr(len)))
+	if ((len + start) > str_len)
+		len = str_len - start;
+	substr = ft_newstr(len);
+	if (!substr)
 		return (NULL);
 	i = 0;
 	while (i < len)

@@ -69,5 +69,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_newstr(size_t size);
 void	*ft_memalloc(size_t size);
 
-
 #endif

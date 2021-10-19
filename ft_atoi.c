@@ -6,7 +6,7 @@
 /*   By: gmyriah <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 12:37:11 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/19 12:37:11 by gmyriah          ###   ########.fr       */
+/*   Updated: 2021/10/19 13:19:50 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 {
 	unsigned long int	result;
 	int					negative;
-	size_t              i;
+	size_t				i;
 
 	result = 0;
 	negative = 1;
@@ -26,9 +26,7 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			negative = -1;
-		}
 		i++;
 	}
 	while (str[i] && ft_isdigit(str[i]))

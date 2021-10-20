@@ -76,12 +76,12 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		$(NAME) all clean fclean re bonus
 
 .c.o:		${HEADER}
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS}
+$(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
 			${RAN} ${NAME}
 

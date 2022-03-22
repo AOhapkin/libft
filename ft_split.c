@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmyriah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gmyriah <gmyriah@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 12:37:11 by gmyriah           #+#    #+#             */
-/*   Updated: 2021/10/19 12:37:45 by gmyriah          ###   ########.fr       */
+/*   Updated: 2022/03/22 17:10:35 by gmyriah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ char	**ft_split(char const *s, char c)
 	size_t		i;
 	size_t		ptr_len;
 
-	if (!s)
-		return (NULL);
 	result = (char **)malloc(sizeof(char *) * (ft_count_strs(s, c) + 1));
 	if (!result)
 		return (NULL);

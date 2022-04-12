@@ -9,9 +9,15 @@
 #   Updated: 202#   Updated: 2021/10/19 13:02:20 by gmyriah          ###   ########.fr       #                                              #
 # ************************************************************************** #
 
-NAME		= libft.a
+NAME = libft.a
 
-SRCS		= ft_isalpha.c \
+# dirs
+DIR_S = sources
+DIR_O = objects
+
+INCLUDES = ./includes
+
+C_FILES		= ft_isalpha.c \
 		ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -49,8 +55,7 @@ SRCS		= ft_isalpha.c \
 		ft_putnbr_fd.c \
 		ft_memalloc.c \
 		ft_newstr.c \
-
-BONUS		= ft_lstnew.c \
+		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -60,40 +65,29 @@ BONUS		= ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
 
-HEADER		= libft.h
+HEADER = $(INCLUDES)/libft.h
+SRCS = $(addprefix $(DIR_S)/,$(C_FILES))
+OBJS = $(addprefix $(DIR_O)/,$(C_FILES:.c=.o))\
 
-OBJS		= ${SRCS:.c=.o}
+.PHONY: all clean fclean re reclean force
 
-BONUS_OBJS 	= ${BONUS:.c=.o}
+all: $(NAME)
 
-CC			= gcc
+$(NAME): $(DIR_O) $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
-AR			= ar rcs
+$(DIR_O):
+	echo $(DIR_O)
+	mkdir -p $(DIR_O)
 
-RAN			= ranlib
-
-RM			= rm -f
-
-CFLAGS		= -Wall -Wextra -Werror
-
-.PHONY:		$(NAME) all clean fclean re bonus
-
-.c.o:		${HEADER}
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
-$(NAME):	${OBJS}
-			${AR} ${NAME} ${OBJS}
-			${RAN} ${NAME}
-
-all:		${NAME}
+$(DIR_O)/%.o: $(DIR_S)/%.c $(HEADER)
+	gcc -Wall -Wextra -Werror -g -I $(INCLUDES) -c $< -o $@
 
 clean:
-			${RM} ${OBJS} ${BONUS_OBJS}
+	rm -rf $(DIR_O)
 
-fclean:		clean
-			${RM} ${NAME}
+fclean: clean
+	rm -f $(NAME)
 
-re:			fclean all
-
-bonus:		${OBJS} ${BONUS_OBJS}
-			${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
+re: fclean all
